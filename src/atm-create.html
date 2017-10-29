@@ -1,0 +1,38 @@
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../bower_components/vaadin-form-layout/vaadin-form-layout.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="atm-form.html">
+
+<dom-module id="atm-create">
+  <template>
+    <style include="shared-styles iron-flex iron-flex-alignment">
+      :host {
+        display: block;
+      }
+      atm-displayform{
+        position:relative;
+        margin-top: 50px;
+      }
+     
+    </style>
+
+  <div class="layout vertical"> 
+    <h4>Please enter the details of New ATM location</h4>
+     <atm-form  visible={{visible}} atm-Detail={{atmDetails}}></atm-form> 
+      <atm-displayform visible={{visible}} atm-Detail={{atmDetails}}></atm-displayform> 
+    </div>
+  </template>
+
+  <script>
+    class AtmCreate extends Polymer.Element {
+      static get is() { return 'atm-create'; }
+    }
+
+    window.customElements.define(AtmCreate.is, AtmCreate);
+  </script>
+</dom-module>

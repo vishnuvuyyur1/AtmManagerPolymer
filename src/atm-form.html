@@ -1,0 +1,80 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/vaadin-form-layout/vaadin-form-layout.html">
+<link rel="import" href="atm-displayform.html">
+
+<dom-module id="atm-form">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+       a{
+        text-decoration: none
+        }
+      paper-button {
+        margin-left: 350px;
+        margin-top: 50px;
+      }
+      @media (max-width: 767px) {
+        paper-button {
+          margin-left: 0px;
+        }
+      }
+
+    </style>
+
+    <vaadin-form-layout>
+      <paper-input label="Name" value="{{atmDetails.name}}"></paper-input>
+      <paper-input label="Address" value="{{atmDetails.address}}"></paper-input>
+      <paper-input label="Zip Code" value="{{atmDetails.zipCode}}"></paper-input>
+      <paper-input label="City" value="{{atmDetails.city}}"></paper-input>
+      <paper-input label="Country" value="{{atmDetails.country}}"></paper-input>
+      <paper-input label="Hours of Operation" value="{{atmDetails.hours}}"></paper-input>
+      <paper-button on-click="_addAtmDetail">Save
+        <!-- <a  href="/overview">Save</a> -->
+      </paper-button>
+    
+         </vaadin-form-layout> 
+
+
+
+  </template>
+
+  <script>
+    class AtmForm extends Polymer.Element {
+      static get is() { return 'atm-form'; }
+      static get properties() {
+        return {
+
+          atmDetails: {
+            type: Object,
+            notify: true,
+            value: () => { return {} }
+          },
+
+          atmDetail: {
+            type:Object,
+            notify: true
+          },
+
+          visible: {
+            type: Boolean,
+            notify: true,
+            reflectToAttribute: true,
+            value: false
+          }
+        }
+      }
+      _addAtmDetail() {
+        this.visible = !this.visible;
+        this.atmDetail=this.atmDetails;
+        this.atmDetails={};
+      }
+    }
+
+    window.customElements.define(AtmForm.is, AtmForm);
+  </script>
+</dom-module>

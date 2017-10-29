@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="atm-overview">
+  <template>
+    <style include="shared-styles iron-flex iron-flex-alignment">
+      :host {
+        display: block;
+        padding-bottom: 30px;
+      }
+ 
+       img {
+        max-width:100%;
+        max-height: 100%;
+        margin: 0 auto;
+      } 
+
+      .desc{
+        padding-left: 50px;
+        margin-bottom: 0px;
+      }
+
+      h1 {
+    margin: 16px 0;
+    color: #212121;
+    font-size: 22px;
+    text-align: center;
+}
+
+    </style>
+    <div class="layout vertical"> 
+      <img  class="flex" src="images/INGIcon.jpg" alt="ING Cover Pic">
+      <h1>Hello Welcome to ING ATM manager Application</h1>
+      <h3 class="desc">This application allow you to do the following</h3>
+      <p class="desc">1. You can view the existing ING ATM locations in Netherlands </p>
+      <p class="desc">2. You can able to add new ING ATM location in Netherlands </p>
+    </div>
+  </template>
+
+  <script>
+    class AtmOverview extends Polymer.Element {
+      static get is() { return 'atm-overview'; }
+    }
+
+    window.customElements.define(AtmOverview.is, AtmOverview);
+  </script>
+</dom-module>

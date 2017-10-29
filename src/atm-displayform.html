@@ -1,0 +1,109 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<dom-module id="atm-displayform">
+  <template>
+    <style include="iron-flex iron-flex-alignment">
+      :host {
+        display: none;
+      }
+
+      :host([visible]) {
+        display: block;
+        width: 50%;
+        height: 50%;
+        background-color: darkgray;
+      }
+
+      .items {
+        margin: 10px;
+      }
+
+      p {
+        margin-top: 0;
+        float: right;
+        margin-right: 200px;
+
+      }
+
+      label {
+       
+        margin-left: 50px;
+      }
+
+      paper-button {
+        margin-left: 300px;
+      }
+
+      @media (max-width: 767px) {
+        paper-button {
+          margin-left: 0px;
+        }
+
+        p {
+          margin-right: 0px;
+        }
+      }
+    </style>
+
+    <div class="layout vertical">
+      <div class="items">
+        <label>Name</label>
+        <p>{{atmDetail.name}}</p>
+      </div>
+      <div class="items">
+        <label>Address</label>
+        <p>{{atmDetail.address}}</p>
+      </div>
+      <div class="items">
+        <label>Zip Code</label>
+        <p>{{atmDetail.zipCode}}</p>
+      </div>
+      <div class="items">
+        <label>City</label>
+        <p>{{atmDetail.city}}</p>
+      </div>
+      <div class="items">
+        <label>Country</label>
+        <p>{{atmDetail.country}}</p>
+      </div>
+      <div class="items">
+        <label>Hours of Operation</label>
+        <p>{{atmDetail.hours}}</p>
+      </div>
+      <div class="items">
+        <paper-button on-click="_close">Close</paper-button>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    class AtmDisplayform extends Polymer.Element {
+      static get is() { return 'atm-displayform'; }
+      static get properties() {
+        return {
+          atmDetail: {
+            type: Object
+          },
+
+          testCase: {
+            type: String,
+          },
+
+          visible: {
+            type: Boolean,
+            notify: true,
+            reflectToAttribute: true,
+            value: false
+          }
+        };
+      }
+      _close() {
+        this.visible = !this.visible;
+      }
+    }
+
+    window.customElements.define(AtmDisplayform.is, AtmDisplayform);
+  </script>
+</dom-module>
