@@ -44,6 +44,17 @@
     method="POST" 
     timeout="300000" >
 </vaadin-upload>
+
+<br>
+
+<vaadin-upload id="manualUpload" 
+target="http://localhost:8080/ingatmmanager/api/uploadFile"
+method="POST" 
+no-auto>
+</vaadin-upload>
+<br>
+<button id="uploadButton" on-click="_uploadFile">Manual Upload</button>
+
   </template>
 
   <script>
@@ -61,7 +72,12 @@
         console.log("Form Submitted");
       }
 
-    }
+      _uploadFile(){
+        var upload = this.shadowRoot.querySelector('#manualUpload');
+        upload.uploadFiles();
+      }
+
+    }  
 
     window.customElements.define(AtmUpload.is, AtmUpload);
   </script>
