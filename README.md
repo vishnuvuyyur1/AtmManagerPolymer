@@ -35,7 +35,7 @@ Switch to your favorite source directory and execute this command to install the
 
 Now we can start the Codelab app: 
 
-    cd INGAtmManagerPolymer
+    cd AtmManagerPolymer
     polymer serve --open
 
 
