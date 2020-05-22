@@ -1,4 +1,4 @@
-#### INGAtmManagerPolymer
+#### AtmManagerPolymer
 
 A ploymer based UI application
 
